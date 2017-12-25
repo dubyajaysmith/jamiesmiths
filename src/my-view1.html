@@ -1,0 +1,117 @@
+<!--
+@license
+Copyright (c) 2016 The Polymer Project Authors. All rights reserved.
+This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
+The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
+The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
+Code distributed by Google as part of the polymer project is also
+subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
+-->
+
+<link rel="import" href="../bower_components/polymer/polymer-element.html">
+<link rel="import" href="shared-styles.html">
+
+<dom-module id="my-view1">
+  <template>
+    <style include="shared-styles">
+      :host {
+        display: block;
+        padding: 10px;
+      }
+      @keyframes pulse {
+        0% { transform: scale(1); }
+        50% { transform: scale(1.3); }
+        100% { transform: scale(1); }
+      }
+      :host .circle {
+        border-radius: 50%;
+        text-align: center;
+        -moz-border-radius: 50%;
+        -webkit-border-radius: 50%;
+        -webkit-box-shadow: 0 0 8px rgba(0, 0, 0, .8);
+        -moz-box-shadow: 0 0 8px rgba(0, 0, 0, .8);
+        box-shadow: 0 0 0.8rem rgba(0, 0, 0, .8);
+      }
+      :host .col1-2 {
+        width: 25%;
+        line-height: 10%;
+        float: left;
+        vertical-align: middle;
+        text-align: center;
+      }
+      :host .col2-2 {
+        width: 75%;
+        line-height: 70px;
+        float: left;
+        font-size: 1.4rem;
+        vertical-align: middle;
+        font-family: 'Dancing Script', cursive;
+      }
+      :host .center {
+        text-align: center;
+      }
+      :host .card-body {
+        margin-top: 6em;
+      }
+      
+      :host .heart {
+        top: 5px;
+        width: 20px;
+        position: relative;
+        fill: var(--accent-color);
+        animation: pulse 1s ease infinite;
+        -webkit-animation: pulse 1s ease infinite;
+      }
+
+      paper-card {
+        color: #EEE;
+        font-size: .96rem;
+        background-color: #3D3D3D;
+      }
+      
+      .card-footer {
+        background: #333;
+        padding: .8rem;
+        -webkit-box-shadow: 0 0 8px rgba(0, 0, 0, .8);
+        -moz-box-shadow: 0 0 8px rgba(0, 0, 0, .8);
+        box-shadow: 0 0 0.8rem rgba(0, 0, 0, .8);
+        text-align: center;
+        cursor: pointer;
+      }
+
+    </style>
+    <paper-card image="../images/geneRainbow.jpg">
+      <div class="card-content">
+        <div class="card-header">
+            <span class="col1-2"><img class="circle" src="../images/me-2017.jpg" /></span>
+            <span class="col2-2">I <svg class="heart" viewBox="0 0 32 29.6">
+              <path d="M23.6,0c-3.4,0-6.3,2.7-7.6,5.6C14.7,2.7,11.8,0,8.4,0C3.8,0,0,3.8,0,8.4c0,9.4,9.5,11.9,16,21.2
+            	c6.1-9.3,16-12.1,16-21.2C32,3.8,28.2,0,23.6,0z" /> 
+            </svg> Code &amp; Collies.
+          </span>
+        </div>
+        
+        <div class="card-body">
+          <p class="">
+            This is my (new) corner of the interwebs to put various projects, contact info, yada yada.
+
+          </p>
+        </div>
+        <!-- <div class="card-actions">
+        </div> -->
+      </div>
+      <div class="card-footer">
+        Reach Out
+      </div>
+    </paper-card>
+      
+  </template>
+
+  <script>
+    class MyView1 extends Polymer.Element {
+      static get is() { return 'my-view1'; }
+    }
+
+    window.customElements.define(MyView1.is, MyView1);
+  </script>
+</dom-module>
