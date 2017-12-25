@@ -37,7 +37,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         line-height: 10%;
         float: left;
         vertical-align: middle;
-        text-align: center;
+        text-align: right;
       }
       :host .col2-2 {
         width: 75%;
@@ -47,11 +47,21 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         vertical-align: middle;
         font-family: 'Dancing Script', cursive;
       }
+      @media screen and (min-width: 480px) {
+        :host .col1-2 {
+          width: 40%;
+        }
+        :host .col2-2 {
+          width: 60%;
+        }
+      }
+
       :host .center {
         text-align: center;
       }
       :host .card-body {
         margin-top: 6em;
+        min-height: 100px;
       }
       
       :host .heart {
@@ -68,6 +78,10 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         font-size: .96rem;
         background-color: #3D3D3D;
       }
+
+      :host .header {
+        max-height: 33em;
+      }
       
       .card-footer {
         background: #333;
@@ -83,22 +97,21 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     <paper-card image="../images/geneRainbow.jpg">
       <div class="card-content">
         <div class="card-header">
-            <span class="col1-2"><img class="circle" src="../images/me-2017.jpg" /></span>
-            <span class="col2-2">I <svg class="heart" viewBox="0 0 32 29.6">
+            <span class="col1-2">
+              <img class="circle" src="../images/me-2017.jpg" />
+            </span>
+            <span class="col2-2"> &nbsp; &nbsp; I <svg class="heart" viewBox="0 0 32 29.6">
               <path d="M23.6,0c-3.4,0-6.3,2.7-7.6,5.6C14.7,2.7,11.8,0,8.4,0C3.8,0,0,3.8,0,8.4c0,9.4,9.5,11.9,16,21.2
             	c6.1-9.3,16-12.1,16-21.2C32,3.8,28.2,0,23.6,0z" /> 
-            </svg> Code &amp; Collies.
+            </svg> Code &amp; Border Collies
           </span>
         </div>
         
         <div class="card-body">
-          <p class="">
-            This is my (new) corner of the interwebs to put various projects, contact info, yada yada.
-
-          </p>
+          <span class="">
+            This is a corner of the interwebs to put various projects, contact info, yada yada.
+          </span>
         </div>
-        <!-- <div class="card-actions">
-        </div> -->
       </div>
       <div class="card-footer">
         Reach Out

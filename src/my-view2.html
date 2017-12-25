@@ -19,19 +19,107 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
         padding: 10px;
       }
+      :host {
+        display: block;
+        padding: 10px;
+      }
+      @keyframes pulse {
+        0% { transform: scale(1); }
+        50% { transform: scale(1.3); }
+        100% { transform: scale(1); }
+      }
+      :host .circle {
+        border-radius: 50%;
+        text-align: center;
+        -moz-border-radius: 50%;
+        -webkit-border-radius: 50%;
+        -webkit-box-shadow: 0 0 8px rgba(0, 0, 0, .8);
+        -moz-box-shadow: 0 0 8px rgba(0, 0, 0, .8);
+        box-shadow: 0 0 0.8rem rgba(0, 0, 0, .8);
+      }
+
+      :host .center {
+        text-align: center;
+      }
+
+      paper-card {
+        color: #EEE;
+        font-size: .96rem;
+        background-color: #3D3D3D;
+        width: 100%;
+
+        padding-top: 3rem;
+        padding-bottom: 3rem;
+        text-align: center;
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+      }
     </style>
 
-    <div class="card">
-      <div class="circle">2</div>
-      <h1>View Two</h1>
-      <p>Ea duis bonorum nec, falli paulo aliquid ei eum.</p>
-      <p>Id nam odio natum malorum, tibique copiosae expetenda mel ea.Detracto suavitate repudiandae no eum. Id adhuc minim soluta nam.Id nam odio natum malorum, tibique copiosae expetenda mel ea.</p>
-    </div>
+
+    <paper-card id="textMe" elevation="3">
+      <iron-icon class="button-icon" icon="communication:message"></iron-icon>
+      &nbsp;Text Me
+    </paper-card>
+      
+    
+    <paper-card id="callMe" elevation="3" >
+      <iron-icon class="button-icon" icon="communication:call"></iron-icon>
+      &nbsp;Call Me
+    </paper-card>
+    
+    
+    <paper-card id="emailMe" elevation="3" >
+        <iron-icon class="button-icon" icon="communication:email"></iron-icon>
+        &nbsp;Email Me
+    </paper-card>
+    
+    <paper-card id="plusMe" elevation="3" >
+      <iron-icon class="button-icon" icon="social:person-add"></iron-icon>
+      &nbsp;Plus Me
+    </paper-card>
+    
+    <paper-card onclick="() => console.dir()" elevation="3" >
+      <iron-icon onclick="console.dir(this)" class="button-icon" icon="code"></iron-icon>
+      &nbsp;Github Me
+    </paper-card>
+      
   </template>
 
   <script>
+    const gitMe = () => console.dir()
+
+    //document.querySelector('#textMe').onclick = () => 
+      //window.location = 'sms:18648100420'
+    
+    //document.querySelector('#callMe').onclick = () => 
+      //window.location = 'tel:18648100420'
+    
+    //document.querySelector('#emailMe').onclick = () => 
+      //window.location = 'mailto:i@jamiesmiths.com?Subject=via JamieSmiths.com';
+    
+    //document.querySelector('#plusMe').onclick = () => 
+      //window.location = 'https://plus.google.com/+jamiesmith', '_blank'
+    
+    //document.querySelector('#gitMe').onclick = () => 
+      //window.location = 'https://github.com/dubyajaysmith', '_blank'
+    
+
+  
+    
     class MyView2 extends Polymer.Element {
-      static get is() { return 'my-view2'; }
+      static get is() {
+        //console.dir(document)
+        if(this.content){
+          //console.dir(this.content)
+          this.content.querySelector('#textMe').onclick = () => window.location = 'sms:18648100420'
+          this.content.querySelector('#callMe').onclick = () => console.dir('asdf')
+        }
+        
+        return 'my-view2'; 
+      }
+
+      
     }
 
     window.customElements.define(MyView2.is, MyView2);

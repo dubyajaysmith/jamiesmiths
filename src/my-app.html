@@ -14,6 +14,9 @@
 <link rel="import" href="../bower_components/paper-card/paper-card.html">
 
 <link rel="import" href="my-icons.html">
+<link rel="import" href="../bower_components/iron-icons/iron-icons.html">
+<link rel="import" href="../bower_components/iron-icons/social-icons.html">
+<link rel="import" href="../bower_components/iron-icons/communication-icons.html">
 
 <link rel="lazy-import" href="my-view1.html">
 <link rel="lazy-import" href="my-view2.html">
@@ -38,6 +41,7 @@
         --divider-color:            #BDBDBD;
 
         /* Components */
+        --jamie-dark: #3D3D3D;
 
         /* paper-drawer-panel */
         --drawer-menu-color:           #ffffff;
@@ -45,8 +49,8 @@
         --drawer-toolbar-border-color: 1px solid rgba(0, 0, 0, 0.22);
 
         /* paper-menu */
-        --paper-menu-background-color: #fff;
-        --menu-link-color:             #111111;
+        --paper-menu-background-color: var(--jamie-dark);
+        --menu-link-color:             #EEE;
 
         /* paper-input */
         --paper-input-container-color:       rgba(255, 255, 255, 0.64);
@@ -54,8 +58,29 @@
         --paper-input-container-input-color: #fff;
 
         display: block;
+background: linear-gradient(270deg, #89e3cc, #d6d6d6);
+background-size: 400% 400%;
+
+-webkit-animation: backgrounder 11s ease infinite;
+-moz-animation: backgrounder 11s ease infinite;
+animation: backgrounder 11s ease infinite;
       }
 
+@-webkit-keyframes backgrounder {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+@-moz-keyframes backgrounder {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+@keyframes backgrounder { 
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
       app-drawer-layout:not([narrow]) [drawer-toggle] {
         display: none;
       }
@@ -63,7 +88,7 @@
       app-header {
         color: #fff;
         font-family: 'Dancing Script', cursive;
-        background-color: var(--app-primary-color);
+        background-color: var(--jamie-dark);
       }
 
       app-header paper-icon-button {
@@ -72,6 +97,7 @@
 
       .drawer-list {
         margin: 0 20px;
+        background: #b6b6b6;
       }
 
       .drawer-list a {
@@ -83,8 +109,10 @@
       }
 
       .drawer-list a.iron-selected {
-        color: black;
+        color: #EEE;
+        background: #3D3D3D;
         font-weight: bold;
+
       }
     </style>
 
@@ -105,9 +133,9 @@
       <app-drawer id="drawer" slot="drawer" swipe-open="[[narrow]]">
         <app-toolbar>Menu</app-toolbar>
         <iron-selector selected="[[page]]" attr-for-selected="name" class="drawer-list" role="navigation">
-          <a name="view1" href="[[rootPath]]view1">View One</a>
-          <a name="view2" href="[[rootPath]]view2">View Two</a>
-          <a name="view3" href="[[rootPath]]view3">View Three</a>
+          <a name="view1" href="[[rootPath]]view1">Hello</a>
+          <a name="view2" href="[[rootPath]]view2">Contact</a>
+          <a name="view3" href="[[rootPath]]view3">Projects</a>
         </iron-selector>
       </app-drawer>
 
