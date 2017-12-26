@@ -1,7 +1,7 @@
 {
-  "name": "My App",
-  "short_name": "My App",
-  "description": "My App description",
+  "name": "Jamie Smiths .com",
+  "short_name": "JamieSmiths",
+  "description": "Jamie Smiths Home.",
   "icons": [
     {
       "src": "images/manifest/icon-192x192.png",

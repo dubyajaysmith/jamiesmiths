@@ -26,61 +26,41 @@
 <dom-module id="my-app">
   <template>
     <style>
-      :host {
-        --dark-primary-color:       #0288D1;
-        --app-primary-color:        #03A9F4;
-        --default-primary-color:    #03A9F4;
-        --light-primary-color:      #B3E5FC;
-        --text-primary-color:       #FFFFFF;
-        --accent-color:             #FF4081;
+       :host {
+         font-family: 'Ledger', serif;
+        --dark-primary-color: #0288D1;
+        --app-primary-color: #03A9F4;
+        --default-primary-color: #03A9F4;
+        --light-primary-color: #B3E5FC;
+        --text-primary-color: #FFFFFF;
+        --accent-color: #FF4081;
         --primary-background-color: #B3E5FC;
-        --primary-text-color:       #212121;
-        --app-secondary-color:      #212121;
-        --secondary-text-color:     #757575;
-        --disabled-text-color:      #BDBDBD;
-        --divider-color:            #BDBDBD;
+        --primary-text-color: #212121;
+        --app-secondary-color: #212121;
+        --secondary-text-color: #757575;
+        --disabled-text-color: #BDBDBD;
+        --divider-color: #BDBDBD;
 
         /* Components */
         --jamie-dark: #3D3D3D;
 
         /* paper-drawer-panel */
-        --drawer-menu-color:           #ffffff;
-        --drawer-border-color:         1px solid #ccc;
+        --drawer-menu-color: #b6b6b6;
+        --drawer-border-color: 1px solid #b6b6b6;
         --drawer-toolbar-border-color: 1px solid rgba(0, 0, 0, 0.22);
 
         /* paper-menu */
         --paper-menu-background-color: var(--jamie-dark);
-        --menu-link-color:             #EEE;
+        --menu-link-color: #EEE;
 
         /* paper-input */
-        --paper-input-container-color:       rgba(255, 255, 255, 0.64);
+        --paper-input-container-color: rgba(255, 255, 255, 0.64);
         --paper-input-container-focus-color: rgba(255, 255, 255, 1);
         --paper-input-container-input-color: #fff;
 
-        display: block;
-background: linear-gradient(270deg, #89e3cc, #d6d6d6);
-background-size: 400% 400%;
-
--webkit-animation: backgrounder 11s ease infinite;
--moz-animation: backgrounder 11s ease infinite;
-animation: backgrounder 11s ease infinite;
       }
 
-@-webkit-keyframes backgrounder {
-    0%{background-position:0% 50%}
-    50%{background-position:100% 50%}
-    100%{background-position:0% 50%}
-}
-@-moz-keyframes backgrounder {
-    0%{background-position:0% 50%}
-    50%{background-position:100% 50%}
-    100%{background-position:0% 50%}
-}
-@keyframes backgrounder { 
-    0%{background-position:0% 50%}
-    50%{background-position:100% 50%}
-    100%{background-position:0% 50%}
-}
+
       app-drawer-layout:not([narrow]) [drawer-toggle] {
         display: none;
       }
@@ -97,7 +77,6 @@ animation: backgrounder 11s ease infinite;
 
       .drawer-list {
         margin: 0 20px;
-        background: #b6b6b6;
       }
 
       .drawer-list a {
@@ -110,27 +89,22 @@ animation: backgrounder 11s ease infinite;
 
       .drawer-list a.iron-selected {
         color: #EEE;
-        background: #3D3D3D;
+        background: var(--jamie-dark);
+        border-bottom: 2pt solid var(--app-primary-color);
         font-weight: bold;
-
       }
+      
     </style>
 
-    <app-location
-        route="{{route}}"
-        url-space-regex="^[[rootPath]]">
+    <app-location route="{{route}}" url-space-regex="^[[rootPath]]">
     </app-location>
 
-    <app-route
-        route="{{route}}"
-        pattern="[[rootPath]]:page"
-        data="{{routeData}}"
-        tail="{{subroute}}">
+    <app-route route="{{route}}" pattern="[[rootPath]]:page" data="{{routeData}}" tail="{{subroute}}">
     </app-route>
 
     <app-drawer-layout fullbleed narrow="{{narrow}}">
       <!-- Drawer content -->
-      <app-drawer id="drawer" slot="drawer" swipe-open="[[narrow]]">
+      <app-drawer id="drawer" slot="drawer" swipe-open="[[narrow]]" style="background:#BDBDBD !important;">
         <app-toolbar>Menu</app-toolbar>
         <iron-selector selected="[[page]]" attr-for-selected="name" class="drawer-list" role="navigation">
           <a name="view1" href="[[rootPath]]view1">Hello</a>
@@ -149,11 +123,7 @@ animation: backgrounder 11s ease infinite;
           </app-toolbar>
         </app-header>
 
-        <iron-pages
-            selected="[[page]]"
-            attr-for-selected="name"
-            fallback-selection="view404"
-            role="main">
+        <iron-pages selected="[[page]]" attr-for-selected="name" fallback-selection="view404" role="main">
           <my-view1 name="view1"></my-view1>
           <my-view2 name="view2"></my-view2>
           <my-view3 name="view3"></my-view3>
@@ -165,7 +135,9 @@ animation: backgrounder 11s ease infinite;
 
   <script>
     class MyApp extends Polymer.Element {
-      static get is() { return 'my-app'; }
+      static get is() {
+        return 'my-app';
+      }
 
       static get properties() {
         return {
@@ -203,10 +175,10 @@ animation: backgrounder 11s ease infinite;
         // Load page import on demand. Show 404 page if fails
         var resolvedPageUrl = this.resolveUrl('my-' + page + '.html');
         Polymer.importHref(
-            resolvedPageUrl,
-            null,
-            this._showPage404.bind(this),
-            true);
+          resolvedPageUrl,
+          null,
+          this._showPage404.bind(this),
+          true);
       }
 
       _showPage404() {

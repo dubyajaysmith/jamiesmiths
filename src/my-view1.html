@@ -90,7 +90,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         -moz-box-shadow: 0 0 8px rgba(0, 0, 0, .8);
         box-shadow: 0 0 0.8rem rgba(0, 0, 0, .8);
         text-align: center;
-        cursor: pointer;
+        border-bottom: 3pt solid var(--app-primary-color) ;
+        cursor: pointer !important;
       }
 
     </style>
@@ -107,13 +108,13 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           </span>
         </div>
         
-        <div class="card-body">
+        <div class="card-body center">
           <span class="">
-            This is a corner of the interwebs to put various projects, contact info, yada yada.
+            Welcome to my corner of the interwebs.
           </span>
         </div>
       </div>
-      <div class="card-footer">
+      <div class="card-footer" onclick="location = '/view2'">
         Reach Out
       </div>
     </paper-card>
@@ -121,6 +122,9 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
   </template>
 
   <script>
+
+
+
     class MyView1 extends Polymer.Element {
       static get is() { return 'my-view1'; }
     }

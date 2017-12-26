@@ -14,21 +14,30 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 <dom-module id="my-view2">
   <template>
     <style include="shared-styles">
-      :host {
+       :host {
         display: block;
 
         padding: 10px;
       }
-      :host {
+
+       :host {
         display: block;
         padding: 10px;
       }
+
       @keyframes pulse {
-        0% { transform: scale(1); }
-        50% { transform: scale(1.3); }
-        100% { transform: scale(1); }
+        0% {
+          transform: scale(1);
+        }
+        50% {
+          transform: scale(1.3);
+        }
+        100% {
+          transform: scale(1);
+        }
       }
-      :host .circle {
+
+       :host .circle {
         border-radius: 50%;
         text-align: center;
         -moz-border-radius: 50%;
@@ -38,88 +47,83 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         box-shadow: 0 0 0.8rem rgba(0, 0, 0, .8);
       }
 
-      :host .center {
+       :host .center {
         text-align: center;
       }
 
       paper-card {
         color: #EEE;
-        font-size: .96rem;
+        font-size: 1.4rem;
         background-color: #3D3D3D;
         width: 100%;
-
-        padding-top: 3rem;
-        padding-bottom: 3rem;
+        padding-top: 2rem;
+        padding-bottom: 1rem;
         text-align: center;
         margin-top: 1rem;
+        margin-bottom: 1rem;
+        border-bottom: 3pt solid var(--app-primary-color);
+        cursor: pointer;
+      }
+
+      .button-icon {
+        color: var(--app-primary-color);
+        max-width: 3.75rem;
+        font-size: 2rem;
+        background: white;
+        border-radius: 20rem;
+        height: auto;
+        width: auto;
+        padding: .75rem;
         margin-bottom: 1rem;
       }
     </style>
 
 
-    <paper-card id="textMe" elevation="3">
-      <iron-icon class="button-icon" icon="communication:message"></iron-icon>
-      &nbsp;Text Me
+    <paper-card elevation="3" onclick="location = 'tel:18648100420'">
+      <div class="card-content">
+        <iron-icon class="button-icon" icon="communication:call"></iron-icon>
+        <br /> Call Me
+      </div>
     </paper-card>
-      
-    
-    <paper-card id="callMe" elevation="3" >
-      <iron-icon class="button-icon" icon="communication:call"></iron-icon>
-      &nbsp;Call Me
+
+    <paper-card elevation="3" onclick="location = 'sms:18648100420'">
+      <div class="card-content">
+        <iron-icon class="button-icon" icon="communication:message"></iron-icon>
+        <br /> Text Me
+      </div>
     </paper-card>
-    
-    
-    <paper-card id="emailMe" elevation="3" >
+
+    <paper-card elevation="3" onclick="location = 'mailto:i@jamiesmiths.com?Subject=via JamieSmiths.com'">
+      <div class="card-content">
         <iron-icon class="button-icon" icon="communication:email"></iron-icon>
-        &nbsp;Email Me
+        <br/> Email Me
+      </div>
     </paper-card>
-    
-    <paper-card id="plusMe" elevation="3" >
-      <iron-icon class="button-icon" icon="social:person-add"></iron-icon>
-      &nbsp;Plus Me
+
+    <paper-card elevation="3" onclick="location = 'https://github.com/dubyajaysmith', '_blank'">
+      <div class="card-content">
+        <iron-icon onclick="console.dir(this)" class="button-icon" icon="code"></iron-icon>
+        <br/> Github Me
+      </div>
     </paper-card>
-    
-    <paper-card onclick="() => console.dir()" elevation="3" >
-      <iron-icon onclick="console.dir(this)" class="button-icon" icon="code"></iron-icon>
-      &nbsp;Github Me
+
+    <paper-card elevation="3" onclick="location = 'https://plus.google.com/+jamiesmith', '_blank'">
+      <div class="card-content">
+        <iron-icon class="button-icon" icon="social:person-add"></iron-icon>
+        <br/> Plus Me
+      </div>
     </paper-card>
-      
+
   </template>
 
   <script>
-    const gitMe = () => console.dir()
-
-    //document.querySelector('#textMe').onclick = () => 
-      //window.location = 'sms:18648100420'
-    
-    //document.querySelector('#callMe').onclick = () => 
-      //window.location = 'tel:18648100420'
-    
-    //document.querySelector('#emailMe').onclick = () => 
-      //window.location = 'mailto:i@jamiesmiths.com?Subject=via JamieSmiths.com';
-    
-    //document.querySelector('#plusMe').onclick = () => 
-      //window.location = 'https://plus.google.com/+jamiesmith', '_blank'
-    
-    //document.querySelector('#gitMe').onclick = () => 
-      //window.location = 'https://github.com/dubyajaysmith', '_blank'
-    
-
-  
-    
     class MyView2 extends Polymer.Element {
       static get is() {
-        //console.dir(document)
-        if(this.content){
-          //console.dir(this.content)
-          this.content.querySelector('#textMe').onclick = () => window.location = 'sms:18648100420'
-          this.content.querySelector('#callMe').onclick = () => console.dir('asdf')
-        }
-        
-        return 'my-view2'; 
+
+        return 'my-view2';
       }
 
-      
+
     }
 
     window.customElements.define(MyView2.is, MyView2);

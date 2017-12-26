@@ -16,36 +16,45 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     <style include="shared-styles">
        :host {
         display: block;
-
         padding: 10px;
       }
 
-      :host .center {
+       :host .center {
         text-align: center;
       }
 
-      :host paper-card {
+      paper-card {
         color: #EEE;
-        font-size: .96rem;
+        font-size: 1.4rem;
         background-color: #3D3D3D;
         width: 100%;
-        padding-top: 3rem;
-        padding-bottom: 3rem;
+        padding-top: 2rem;
+        padding-bottom: 1rem;
         text-align: center;
         margin-top: 1rem;
         margin-bottom: 1rem;
+        border-bottom: 3pt solid var(--app-primary-color);
+        cursor: pointer;
       }
-      :host paper-card a {
-        color: #EEE;
-        background: #3D3D3D;
-        font-weight: bold;
-        text-decoration: none;
+
+      .button-icon {
+        color: var(--app-primary-color);
+        max-width: 3.75rem;
+        font-size: 2rem;
+        background: white;
+        border-radius: 20rem;
+        height: auto;
+        width: auto;
+        padding: .75rem;
+        margin-bottom: 1rem;
       }
     </style>
 
-    <paper-card onclick="() => console.dir()" elevation="3">
-      <iron-icon class="button-icon" icon="code"></iron-icon>
-      &nbsp;<a href="//github.com/dubyajaysmith" blank="_blank">WIP but here's a Github link for now.</a>
+    <paper-card elevation="3" onclick="location = 'https://github.com/dubyajaysmith', '_blank'">
+      <div class="card-content">
+        <iron-icon onclick="console.dir(this)" class="button-icon" icon="code"></iron-icon>
+        <br/> WIP but my GitHub's here
+      </div>
     </paper-card>
 
   </template>
